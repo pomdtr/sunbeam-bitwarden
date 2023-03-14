@@ -21,6 +21,12 @@ bw --nointeraction list items --session "$BW_SESSION" | sunbeam query '.[] | {
             title: "Copy Username",
             text: (.login.username // ""),
             shortcut: "ctrl+l"
+        },
+        {
+            "title": "Refresh Vault",
+            "type": "run",
+            "onSuccess": "reload",
+            "command": "bw sync"
         }
     ]
 }' | sunbeam query --slurp '{
