@@ -27,7 +27,7 @@ if [ $# -eq 0 ]; then
     exit 0
 fi
 
-COMMAND=$(sunbeam query -r '.command' <<< "$1")
+COMMAND=$(echo "$1" | sunbeam query -r '.command')
 if [ "$COMMAND" = "list-passwords" ]; then
     bkt --ttl 24h --stale 1h -- bw --nointeraction list items --session "$BW_SESSION" | sunbeam query '.[] | {
         title: .name,
