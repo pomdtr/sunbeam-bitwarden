@@ -15,7 +15,6 @@ fi
 if [ $# -eq 0 ]; then
     sunbeam query -n '{
         title: "Bitwarden Vault",
-        root: "list-passwords",
         commands: [
             {
                 name: "list-passwords",
