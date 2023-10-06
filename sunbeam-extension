@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ $# -eq 0 ]; then
+if [ $# -eq 1 ] && [ "$1" = "manifest" ]; then
     sunbeam query -n '{
         title: "Bitwarden Vault",
         commands: [
@@ -25,7 +25,7 @@ if ! command -v bw &> /dev/null; then
     exit 1
 fi
 
-COMMAND=$(echo "$1" | sunbeam query -r '.command')
+COMMAND=$(sunbeam query -r '.command')
 if [ "$COMMAND" = "list-passwords" ]; then
     bkt --ttl 24h --stale 1h -- bw --nointeraction list items --session "$BW_SESSION" | sunbeam query '.[] | {
         title: .name,
