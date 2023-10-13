@@ -10,7 +10,7 @@
 ## Install
 
 ```bash
-sunbeam extension install https://github.com/pomdtr/sunbeam-bitwarden
+sunbeam extension install github:pomdtr/sunbeam-bitwarden
 ```
 
 ## Usage
